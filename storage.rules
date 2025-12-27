@@ -1,0 +1,20 @@
+rules_version = '2';
+
+// Firebase Storage Security Rules
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Allow all reads (public access)
+    // Allow writes only for authenticated users (you can modify this)
+    match /{allPaths=**} {
+      allow read: if true;
+      allow write: if true; // Change to: if request.auth != null; for production
+    }
+    
+    // Specific rules for Sliders folder
+    match /Sliders/{sliderId} {
+      allow read: if true;
+      allow write: if true; // Change to: if request.auth != null; for production
+      allow delete: if true; // Change to: if request.auth != null; for production
+    }
+  }
+}

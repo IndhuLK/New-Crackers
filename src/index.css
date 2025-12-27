@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rowdies:wght@300;400;700&display=swap');
+
+@import "tailwindcss";
+
+
+@theme {
+  --font-family: "Roboto", sans-serif;
+  --font-weight: 400;
+  --font-style: italic;
+
+  --color-primary: #1A1A3D;
+  --color-gold: #D4AF37;
+  --color-accent: #fac30f;
+  --color-button-orange: #F97316;
+  --color-button-yellow: #FACC15;
+
+  --background-gradient-fireworks: linear-gradient(180deg, #1A1A3D, #D4AF37);
+}
+
+/* Custom Animations */
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-shine {
+  animation: shine 1.5s forwards;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Swiper Customization */
+.category-swiper .swiper-pagination-bullet {
+  background: #cbd5e1 !important; /* slate-300 */
+  opacity: 1 !important;
+  width: 30px;
+  height: 4px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.category-swiper .swiper-pagination-bullet-active {
+  background: #ea580c !important; /* orange-600 */
+  width: 45px;
+}
