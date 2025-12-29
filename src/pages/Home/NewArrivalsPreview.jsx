@@ -6,8 +6,8 @@ import { db } from "../../firebaseConfig";
 import {
   collection,
   query,
-  orderBy,
-  limit,
+   where,          // ✅ ADD THIS LINE
+ 
   onSnapshot,
 } from "firebase/firestore";
 
@@ -18,22 +18,23 @@ export default function NewArrivalsPreview() {
 
   // Fetch latest 4 products
   useEffect(() => {
-    const q = query(
-      collection(db, "products"),
-      orderBy("updatedAt", "desc"),
-      limit(4)
-    );
+  const q = query(
+    collection(db, "products"),
+    where("isFreshArrival", "==", true)
+  );
 
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      const arr = snapshot.docs.map((doc) => ({
+  const unsub = onSnapshot(q, (snap) => {
+    setProducts(
+      snap.docs.map(doc => ({
         id: doc.id,
-        ...doc.data(),
-      }));
-      setProducts(arr);
-    });
+        ...doc.data()
+      }))
+    );
+  });
 
-    return unsubscribe;
-  }, []);
+  return unsub;
+}, []);
+
 
   return (
     <section className="py-24 bg-white relative font-body">

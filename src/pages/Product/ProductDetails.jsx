@@ -114,7 +114,7 @@ const ProductDetails = () => {
 
                 {/* Floating Action Buttons */}
                 <div className="absolute top-4 right-4 flex flex-col gap-3">
-                  <button
+                   {/*<button
                     onClick={() => setIsWishlist(!isWishlist)}
                     className="w-10 h-10 bg-white/50 backdrop-blur-md rounded-full flex items-center justify-center shadow-sm border border-white hover:bg-white hover:scale-110 hover:shadow-md transition-all duration-300 group/btn"
                   >
@@ -122,7 +122,7 @@ const ProductDetails = () => {
                       size={20}
                       className={`transition-all duration-300 ${isWishlist ? "fill-red-500 text-red-500 scale-110" : "text-slate-600 group-hover/btn:text-red-500"}`}
                     />
-                  </button>
+                  </button>*/}
                   <button className="w-10 h-10 bg-white/50 backdrop-blur-md rounded-full flex items-center justify-center shadow-sm border border-white hover:bg-white hover:scale-110 hover:shadow-md transition-all duration-300 group/btn">
                     <Share2 size={20} className="text-slate-600 group-hover/btn:text-blue-600 transition-colors" />
                   </button>

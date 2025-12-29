@@ -122,11 +122,12 @@ const AddProduct = () => {
     safety: "",
     description: "",
     moreInfo: "",
-    isFestivalSpecial: false,
-    isMostLoved: false,
-    outOfStock: false,
-    isBigBoomSale: false,
-    hideProduct: false,
+    isBestSeller: false,
+  isFreshArrival: false,
+
+  outOfStock: false,
+  hideProduct: false,
+    
     metaTitle: "",
     metaDescription: "",
     slug: "",
@@ -406,10 +407,22 @@ const AddProduct = () => {
               <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
                 <Sparkles size={16} className="text-yellow-500 fill-yellow-500" /> Visibility Status
               </h3>
-              <div className="space-y-1">
-                <ToggleSwitch label="Festival Special" name="isFestivalSpecial" checked={product.isFestivalSpecial} onChange={handleChange} color="bg-rose-500" />
-                <ToggleSwitch label="Most Loved" name="isMostLoved" checked={product.isMostLoved} onChange={handleChange} color="bg-pink-500" />
-                <ToggleSwitch label="Big Boom Sale" name="isBigBoomSale" checked={product.isBigBoomSale} onChange={handleChange} color="bg-orange-500" />
+              <div className="space-y-2">
+                <ToggleSwitch
+      label="Best Sellers"
+      name="isBestSeller"
+      checked={product.isBestSeller}
+      onChange={handleChange}
+      color="bg-orange-500"
+    />
+
+    <ToggleSwitch
+      label="Fresh Arrivals"
+      name="isFreshArrival"
+      checked={product.isFreshArrival}
+      onChange={handleChange}
+      color="bg-red-500"
+    />
                 <div className="my-3 h-px bg-slate-100"></div>
                 <ToggleSwitch label="Out of Stock" name="outOfStock" checked={product.outOfStock} onChange={handleChange} color="bg-slate-800" />
                 <ToggleSwitch label="Hidden" name="hideProduct" checked={product.hideProduct} onChange={handleChange} color="bg-slate-400" />
