@@ -22,7 +22,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   ];
 
   return (
-    <div className="fixed inset-0 z-[100] flex bg-[#f8fafc] font-sans">
+    <div className="fixed inset-0 z-[100] flex bg-[#f8fafc] font-sans print:static print:block print:bg-white print:h-auto print:w-auto">
       {/* Mobile overlay */}
       {sidebarOpen && (
         <div 
@@ -32,7 +32,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       )}
       
       {/* Sidebar */}
-      <aside className={`bg-white border-r border-gray-200 flex flex-col transition-all duration-300 fixed inset-y-0 left-0 z-[101] md:relative md:z-0 ${sidebarOpen ? 'translate-x-0 w-[250px]' : '-translate-x-full w-[250px] md:translate-x-0 md:w-[70px]'}`}>
+      <aside className={`bg-white border-r border-gray-200 flex flex-col transition-all duration-300 fixed inset-y-0 left-0 z-[101] md:relative md:z-0 print:hidden ${sidebarOpen ? 'translate-x-0 w-[250px]' : '-translate-x-full w-[250px] md:translate-x-0 md:w-[70px]'}`}>
         <div className="h-16 flex items-center justify-between px-4 border-b border-gray-100 shrink-0">
           <div className={`flex items-center gap-3 overflow-hidden ${!sidebarOpen && 'justify-center w-full'}`}>
             <div className="w-8 h-8 rounded bg-[#0066cc] text-white flex items-center justify-center font-bold text-lg shrink-0">
@@ -142,9 +142,9 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       </aside>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col min-w-0 bg-[#f4f7f9]">
+      <div className="flex-1 flex flex-col min-w-0 bg-[#f4f7f9] print:bg-white print:block">
         {/* Top Navbar */}
-        <header className="h-16 bg-white flex items-center justify-between px-6 border-b border-gray-100 shrink-0">
+        <header className="h-16 bg-white flex items-center justify-between px-6 border-b border-gray-100 shrink-0 print:hidden">
           <div className="flex items-center gap-4">
             {!sidebarOpen && (
               <button onClick={() => setSidebarOpen(true)} className="text-gray-500 hover:text-gray-700 transition-colors md:block hidden">
@@ -172,8 +172,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
           </div>
         </header>
         
-        {/* Page Content */}
-        <main className="flex-1 overflow-y-auto p-6 md:p-8">
+        <main className="flex-1 overflow-y-auto p-6 md:p-8 print:p-0 print:overflow-visible">
           {children}
         </main>
       </div>
